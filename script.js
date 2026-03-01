@@ -11,6 +11,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- Mobile Menu Logic ---
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const body = document.body;
+    
+    // Create mobile menu overlay
+    const mobileMenuOverlay = document.createElement('div');
+    mobileMenuOverlay.className = 'mobile-menu-overlay';
+    mobileMenuOverlay.innerHTML = `
+        <div class="close-mobile-btn">&times;</div>
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="mobile-contact-info" style="margin-top: 40px;">
+            <a href="tel:03167612365" style="font-size: 16px; color: var(--accent);"><i class="fa-solid fa-phone"></i> 0316-7612365</a>
+            <div style="margin-top: 20px; font-size: 14px; color: var(--text-muted);">
+                <i class="fa-solid fa-envelope"></i> info@biniqbal.com<br><br>
+                <i class="fa-solid fa-location-dot"></i> Lahore, Pakistan
+            </div>
+        </div>
+    `;
+    body.appendChild(mobileMenuOverlay);
+
+    const closeMobileBtn = mobileMenuOverlay.querySelector('.close-mobile-btn');
+
+    mobileBtn.addEventListener('click', () => {
+        mobileMenuOverlay.classList.add('active');
+        body.style.overflow = 'hidden';
+    });
+
+    closeMobileBtn.addEventListener('click', () => {
+        mobileMenuOverlay.classList.remove('active');
+        body.style.overflow = 'auto';
+    });
+
     // --- Background Slider Automation ---
     const slides = document.querySelectorAll('.slide');
     let currentSlide = 0;
@@ -96,10 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const modal = document.getElementById('productModal');
-    const closeBtn = document.querySelector('.close-btn');
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
     const colorVariants = document.getElementById('color-variants');
+    // Using event delegation for closes since some variables may not exist immediately if defined poorly
+    const closeBtn = document.querySelector('.close-btn');
 
     // Open Modal Handlers
     document.querySelectorAll('.open-modalBtn').forEach(btn => {
@@ -108,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = e.currentTarget.getAttribute('data-category');
             const data = collectionsData[category];
 
-            if (data) {
+            if (data && modal) {
                 modalTitle.textContent = data.title;
                 modalDesc.textContent = data.desc;
 
@@ -136,11 +174,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close Modal Handlers
     const closeModal = () => {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto'; // Restore scrolling
+        if(modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
     };
 
-    closeBtn.addEventListener('click', closeModal);
+    if(closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
 
     // Close on clicking outside modal content
     window.addEventListener('click', (e) => {
@@ -148,4 +190,16 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    // Testimonials slider logic (if exists in DOM)
+    let currentTestimonial = 0;
+    const testimonials = document.querySelectorAll('.testimonial-slide');
+    
+    if(testimonials.length > 0) {
+        setInterval(() => {
+            testimonials[currentTestimonial].classList.remove('active');
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            testimonials[currentTestimonial].classList.add('active');
+        }, 6000);
+    }
 });

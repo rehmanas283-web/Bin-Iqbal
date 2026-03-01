@@ -736,7 +736,6 @@ footer {
     .navbar nav ul,
     .contact-info {
         display: none;
-        /* simple hidden for mobile, can add toggle later */
     }
 
     .mobile-menu-btn {
@@ -766,5 +765,199 @@ footer {
 
     .modal-content {
         padding: 30px 20px;
+    }
+}
+
+/* --- Mobile Menu Styles --- */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--secondary);
+    z-index: 2000;
+    transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 80px 40px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+    border-left: 1px solid var(--border-color);
+}
+
+.mobile-menu-overlay.active {
+    right: 0;
+}
+
+.close-mobile-btn {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 35px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-mobile-btn:hover {
+    color: var(--accent);
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.mobile-nav-links a {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-main);
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.mobile-nav-links a:hover {
+    color: var(--accent);
+}
+
+/* --- New Sections Styles --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background: var(--primary);
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+}
+
+.service-icon {
+    font-size: 40px;
+    color: var(--accent);
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.service-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Testimonials */
+.testimonials-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 5%;
+    text-align: center;
+}
+
+.testimonial-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    height: 250px;
+}
+
+.testimonial-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.6s ease;
+    visibility: hidden;
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.testimonial-text {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.testimonial-author {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.quote-icon {
+    font-size: 40px;
+    color: rgba(225, 193, 110, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Instagram Banner */
+.insta-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #121212, #1a1a1a);
+    padding: 40px 10%;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.insta-text h3 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.insta-text p {
+    color: var(--text-muted);
+}
+
+.insta-btn {
+    padding: 12px 30px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.insta-btn:hover {
+    background: var(--accent);
+    color: var(--primary);
+}
+
+@media screen and (max-width: 768px) {
+    .testimonial-container {
+        height: 350px;
+    }
+    
+    .insta-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
     }
 }
