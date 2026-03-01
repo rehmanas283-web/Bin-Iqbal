@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bin Iqbal | Premium Men's Suits & Pent Coats</title>
+    <meta name="description"
+        content="Discover premium men's suits and pent coats at Bin Iqbal. Top-quality 2-piece, 3-piece, and blazers designed for elegance.">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome styling for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <header class="navbar" id="navbar">
+        <div class="logo">BIN IQBAL</div>
+        <nav>
+            <ul class="nav-menu">
+                <li class="dropdown">
+                    <a href="#home">Menu <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="index.html">Home</a>
+                        <a href="collections.html">Collections</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="contact-info">
+            <a href="tel:03167612365"><i class="fa-solid fa-phone"></i> 0316-7612365</a>
+        </div>
+        <div class="mobile-menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="scrolling-wrapper">
+            <div class="scrolling-track">
+                <!-- Set 1 -->
+                <div class="scroll-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=400&q=50');">
+                </div>
+                <div class="scroll-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=50');">
+                </div>
+                <!-- Set 2 (for seamless loop) -->
+                <div class="scroll-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1593030103066-0093718efeb9?w=400&q=50');">
+                </div>
+                <div class="scroll-img"
+                    style="background-image: url('https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=50');">
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="fade-in-up">BIN IQBAL</h1>
+            <p class="fade-in-up delay-1">Premium Men's Suits & Pent Coats</p>
+            <p class="sub-text fade-in-up delay-2">Blazers • 2-Piece • 3-Piece</p>
+            <a href="#collections" class="cta-button fade-in-up delay-3">Explore Collection</a>
+        </div>
+    </section>
+
+
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>BIN IQBAL</h2>
+                <p>Elevating Men's Western Wear</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="collections.html">Shop Fabrics</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fa-solid fa-phone"></i> 0316-7612365</li>
+                    <li><i class="fa-solid fa-envelope"></i> info@biniqbal.com</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Lahore, Pakistan</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bin Iqbal Clothing. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title">Collection</h2>
+            <div class="divider"></div>
+            <p id="modal-desc">Explore our premium shades</p>
+
+            <div class="color-variants" id="color-variants">
+                <!-- Color items injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
