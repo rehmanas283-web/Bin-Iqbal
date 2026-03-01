@@ -514,17 +514,19 @@ li {
 
 .color-variants {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
 
 .color-item {
     background: var(--primary);
-    padding: 30px 20px;
+    padding: 20px 20px 30px;
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .color-item:hover {
@@ -532,29 +534,41 @@ li {
     border-color: var(--accent);
 }
 
-.color-swatch {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-    position: relative;
+.color-img {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: top center;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-.color-swatch::after {
+.color-swatch-small {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--secondary);
+}
+
+.color-swatch-small::after {
     content: '';
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
     border-radius: 50%;
     border: 1px solid var(--border-color);
     opacity: 0;
     transition: opacity 0.3s;
 }
 
-.color-item:hover .color-swatch::after {
+.color-item:hover .color-swatch-small::after {
     opacity: 1;
 }
 
@@ -562,6 +576,7 @@ li {
     font-weight: 500;
     margin-bottom: 15px;
     letter-spacing: 1px;
+    font-size: 14px;
 }
 
 .buy-btn {
@@ -768,6 +783,54 @@ footer {
     }
 }
 
+/* --- Checkout Form Styles --- */
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.checkout-form .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 5px;
+}
+
+.checkout-form label {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    padding: 12px 15px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.checkout-form .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.checkout-form .form-row .form-group {
+    flex: 1;
+}
+
 /* --- Mobile Menu Styles --- */
 .mobile-menu-overlay {
     position: fixed;
@@ -781,7 +844,7 @@ footer {
     display: flex;
     flex-direction: column;
     padding: 80px 40px;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
     border-left: 1px solid var(--border-color);
 }
 
@@ -835,7 +898,7 @@ footer {
     background: var(--primary);
     padding: 40px 30px;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
@@ -954,7 +1017,7 @@ footer {
     .testimonial-container {
         height: 350px;
     }
-    
+
     .insta-banner {
         flex-direction: column;
         text-align: center;

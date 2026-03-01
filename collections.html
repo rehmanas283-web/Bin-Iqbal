@@ -119,17 +119,58 @@
         </div>
     </footer>
 
-    <!-- Product Modal -->
+    <!-- Product Modal / Order Form -->
     <div id="productModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2 id="modal-title">Collection</h2>
-            <div class="divider"></div>
-            <p id="modal-desc">Explore our premium shades</p>
 
-            <div class="color-variants" id="color-variants">
-                <!-- Color items injected via JS -->
+            <!-- Step 1: Browse Colors -->
+            <div id="step-colors">
+                <h2 id="modal-title">Collection</h2>
+                <div class="divider"></div>
+                <p id="modal-desc">Explore our premium shades</p>
+                <div class="color-variants" id="color-variants">
+                    <!-- Color items injected via JS -->
+                </div>
             </div>
+
+            <!-- Step 2: Order Details (Hidden Initially) -->
+            <div id="step-checkout" style="display: none; text-align: left;">
+                <button id="back-to-colors" class="buy-btn" style="margin-bottom: 20px;"><i
+                        class="fa-solid fa-arrow-left"></i> Back to Colors</button>
+                <h2>Complete Your Order</h2>
+                <div class="divider" style="margin-left: 0;"></div>
+                <p style="color: var(--text-muted); margin-bottom: 25px;">You selected: <strong id="selected-product"
+                        style="color: var(--accent);"></strong></p>
+
+                <form id="order-form" class="checkout-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" required placeholder="03XXXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Complete Address</label>
+                        <textarea id="address" rows="3" required placeholder="House #, Street, Block, Area"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required placeholder="e.g. Lahore">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" value="Pakistan" readonly>
+                        </div>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 15px;">Confirm Order (Cash
+                        on Delivery)</button>
+                </form>
+            </div>
+
         </div>
     </div>
 
